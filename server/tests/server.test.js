@@ -8,13 +8,13 @@ beforeEach((done) => {
     Boba.remove({}).then(() => done());
 });
 
-describe('POST /bobas', () => {
+describe('POST /boba', () => {
     it('should create a new boba', (done) => {
         var name = 'Pearl Milk Tea';
         var shop = 'Coco';
 
         request(app)
-            .post('/bobas')
+            .post('/boba')
             .send({name, shop})
             .expect(200)
             .expect((res) => {
