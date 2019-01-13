@@ -42,17 +42,20 @@ app.get('/boba', (req, res) => {
     })
 });
 
-
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+app.get('/upload', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+  });
+
+app.get('/template', template.get);
+
+var upload = require('./upload.js');
+app.post('/upload', upload.post);
+
 var path = require('path');
 app.use('/static', express.static(path.join(__dirname, 'public')));
-// app.get('/', (req, res) => {
-//     res.sendFile('landing.html');
-//     // console.log(__dirname + './../public/landing.html');
-
-// });
 
 app.get('/search', (req, res) => {
     var search = req.query.q;
@@ -69,17 +72,7 @@ app.get('/search', (req, res) => {
         res.send(result);
     }, (err) => {
         res.status(400).send(err);
-    })
-
-app.get('/upload', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-  });
-
-app.get('/template', template.get);
-
-var upload = require('./upload.js');
-app.post('/upload', upload.post);
-
+    });
 });
 
 module.exports = {app};
