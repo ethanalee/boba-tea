@@ -2,16 +2,20 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Fuse = require('fuse.js');
+var fileUpload = require('express-fileupload');
+
 
 //local imports
 var {mongoose} = require('./db/mongoose');
 var {Boba} = require('./models/boba');
+var template = require('./template.js');
 
 var app = express();
 const port = 5000; // process.env.PORT 
 
 //using middleware - now we can send json to our app
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 // for resource creation
 app.post('/boba', (req, res) => {
@@ -38,15 +42,9 @@ app.get('/boba', (req, res) => {
     })
 });
 
+
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// create a GET route
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
-
-
 
 var path = require('path');
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -72,6 +70,16 @@ app.get('/search', (req, res) => {
     }, (err) => {
         res.status(400).send(err);
     })
+
+app.get('/upload', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+  });
+
+app.get('/template', template.get);
+
+var upload = require('./upload.js');
+app.post('/upload', upload.post);
+
 });
 
 module.exports = {app};
