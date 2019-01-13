@@ -1,6 +1,7 @@
 //library imports
 var express = require('express');
 var bodyParser = require('body-parser');
+var Fuse = require('fuse.js');
 
 //local imports
 var {mongoose} = require('./db/mongoose');
@@ -54,6 +55,24 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 //     // console.log(__dirname + './../public/landing.html');
 
 // });
+
+app.get('/search', (req, res) => {
+    var search = req.query.q;
+
+    Boba.find({}).then((boba) => {
+        var options = {
+            keys: ['name'],
+            id: 'name', // for debugging
+            threshold: 0.4,
+          }
+        var fuse = new Fuse(boba, options);
+    
+        var result = fuse.search(search)
+        res.send(result);
+    }, (err) => {
+        res.status(400).send(err);
+    })
+});
 
 module.exports = {app};
 

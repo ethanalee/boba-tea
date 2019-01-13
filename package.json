@@ -30,13 +30,14 @@
   },
   "homepage": "https://github.com/ethanalee/boba-tea#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "mongodb": "^2.2.36",
-    "mongoose": "^4.5.9",
     "@fortawesome/fontawesome-free": "5.6.3",
+    "body-parser": "^1.18.3",
     "bootstrap": "4.2.1",
-    "jquery": "3.3.1"
+    "express": "^4.16.4",
+    "fuse.js": "^3.3.0",
+    "jquery": "3.3.1",
+    "mongodb": "^2.2.36",
+    "mongoose": "^4.5.9"
   },
   "devDependencies": {
     "expect": "^1.20.2",
