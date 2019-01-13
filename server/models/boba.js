@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-var Boba = mongoose.model('Boba', {
+var bobaSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
         required: true,
@@ -14,14 +15,23 @@ var Boba = mongoose.model('Boba', {
         minLength: 1
     },
     small: {
-        type: Number
+        type: Number,
+        required: true
     },
     regular: {
-        type: Number
+        type: Number,
+        required: true
     },
     large: {
-        type: Number
+        type: Number,
+        required: true
+    },
+    created: { 
+        type: Date,
+        default: Date.now
     }
 });
 
-module.exports = {Boba}
+var Boba = mongoose.model('Boba', bobaSchema);
+
+module.exports = {Boba};
