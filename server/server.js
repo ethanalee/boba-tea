@@ -7,6 +7,7 @@ var {mongoose} = require('./db/mongoose');
 var {Boba} = require('./models/boba');
 
 var app = express();
+const port = 5000; // process.env.PORT 
 
 //using middleware - now we can send json to our app
 app.use(bodyParser.json());
@@ -36,8 +37,12 @@ app.get('/boba', (req, res) => {
     })
 });
 
-app.listen(3000, () => {
-    console.log('Started on port 3000');
+// console.log that your server is up and running
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+// create a GET route
+app.get('/express_backend', (req, res) => {
+  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
 module.exports = {app};
