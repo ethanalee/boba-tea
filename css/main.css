@@ -1,0 +1,126 @@
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.menu-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: #fff;
+  transition: all 0.5s ease-out;
+}
+.menu-btn.close {
+  transform: rotate(180deg);
+}
+.menu-btn.close .btn-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.close .btn-line:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.close .btn-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.Container.shift1 {
+  transform: translate3d(0, 0, 0);
+  transition: all 0.5s ease-out;
+  background-color: black;
+}
+
+.Container.shift2 {
+  transform: translate(0, -100%, 0);
+  transition: all 0.5s ease-out;
+}
+
+.Container {
+  background-color: grey;
+  margin-left: 50%;
+  width: 50%;
+  height: 100vh;
+  transform: translate3d(0, -100%, 0);
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  border-radius: 5%;
+}
+div.name {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+body {
+  background-color: grey;
+}
+
+div.coco {
+  border-radius: 50%;
+  content: url(../imgs/coco.jpg);
+  width: 100px;
+  height: 100px;
+}
+
+div.chatime {
+  border-radius: 50%;
+  content: url(../imgs/chatime.jpg);
+  width: 100px;
+  height: 100px;
+}
+
+div.alley {
+  border-radius: 50%;
+  content: url(../imgs/alley.jpg);
+  width: 100px;
+  height: 100px;
+}
+
+div.onezo {
+  border-radius: 50%;
+  content: url(../imgs/onezo.jpg);
+  width: 100px;
+  height: 100px;
+}
+
+div.presotea {
+  border-radius: 50%;
+  content: url(../imgs/presotea.jpg);
+  width: 100px;
+  height: 100px;
+}
+
+div.sharetea {
+  border-radius: 50%;
+  content: url(../imgs/sharetea.jpg);
+  width: 100px;
+  height: 100px;
+}
+
+div.coco:hover {
+  border: 6px solid pink;
+}
+
+div.chatime:hover {
+  border: 6px solid pink;
+}
+
+div.alley:hover {
+  border: 6px solid pink;
+}
+
+div.onezo:hover {
+  border: 6px solid pink;
+}
+
+div.presotea:hover {
+  border: 6px solid pink;
+}
+
+div.sharetea:hover {
+  border: 6px solid pink;
+}
