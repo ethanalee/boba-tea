@@ -11,7 +11,7 @@ var {Boba} = require('./models/boba');
 var template = require('./template.js');
 
 var app = express();
-const port = 5000; // process.env.PORT 
+const port = process.env.PORT || 5000; // process.env.PORT 
 
 //using middleware - now we can send json to our app
 app.use(bodyParser.json());

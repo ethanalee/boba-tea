@@ -21,6 +21,24 @@
     <!-- Custom styles for this template -->
     <link href="css/coming-soon.min.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $("button").click(function(e){
+          e.preventDefault();
+          $.get('/search?' + $('#theForm').serialize(), function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+          });
+          console.log('/search?' + $('#theForm').serialize());
+          // $.get("/search", function(data, status){
+          //   alert("Data: " + data + "\nStatus: " + status);
+          // });
+        });
+      });
+      </script>
+
+
   </head>
 
   <body>
@@ -40,7 +58,7 @@
               <p class="mb-5">We're working hard to finish the development of this site. Our target launch date is
                 <strong>January 2019</strong>! Sign up for updates using the form below!</p>
               <div class="input-group input-group-newsletter">
-                <form action="/search" method="GET">
+                <form id="theForm" >
                 <input type="text" name="q" class="form-control" placeholder="Bubble Tea" aria-label="Enter Bubble Tea" aria-describedby="basic-addon">
                   <button class="btn btn-secondary" type="button submit" style="width:100%">Notify Me!</button>
                 </form>
