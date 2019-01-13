@@ -15,15 +15,15 @@ var bobaSchema = mongoose.Schema({
         minLength: 1
     },
     small: {
-        type: Number,
+        type: String,
         required: true
     },
     regular: {
-        type: Number,
+        type: String,
         required: true
     },
     large: {
-        type: Number,
+        type: String,
         required: true
     },
     created: { 

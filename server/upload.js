@@ -1,5 +1,5 @@
 var csv = require('fast-csv');
-var mongoose = require('mongoose');
+var {mongoose} = require('./db/mongoose');
 
 var {Boba} = require('./models/boba');
  
@@ -13,23 +13,24 @@ exports.post = function (req, res) {
          
     csv
      .fromString(authorFile.data.toString(), {
-         //headers: true,
+         headers: true,
          ignoreEmpty: true
      })
      .on("data", function(data){
          data['_id'] = new mongoose.Types.ObjectId();
           
          authors.push(data);
+         console.log(data);
      })
      .on("end", function(){
-         for (var elements in authors) {
-             console.log(elements.name);
-         }
+        // for (i = 0; i < authors.length; i++) {
+        //      console.log(i);
+        //  }
          Boba.create(authors, function(err, documents) {
             //if (err) throw err;
-            // if (err) {
-            //     return console.log(err);
-            // }
+            if (err) {
+                return console.log(err);
+            }
          });
           
          res.send(authors.length + ' authors have been successfully uploaded.');

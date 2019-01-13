@@ -39,14 +39,14 @@ app.get('/boba', (req, res) => {
     })
 });
 
-app.get('/', (req, res) => {
+app.get('/upload', (req, res) => {
     res.sendFile(__dirname + '/index.html');
   });
 
 app.get('/template', template.get);
 
 var upload = require('./upload.js');
-app.post('/', upload.post);
+app.post('/upload', upload.post);
 
 app.listen(3000, () => {
     console.log('Started on port 3000');

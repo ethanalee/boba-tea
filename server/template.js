@@ -1,4 +1,4 @@
-var json2csv = require('json2csv');
+var json2csv = require('json2csv').parse;
  
 exports.get = function(req, res) {
  
@@ -10,9 +10,9 @@ exports.get = function(req, res) {
         'large'
     ];
  
-    var csv = json2csv({ data: '', fields: fields });
+    var csv = json2csv({ data: '', fields});
  
-    res.set("Content-Disposition", "attachment;filename=authors.csv");
+    res.set("Content-Disposition", "attachment;filename=boba-tea-format.csv");
     res.set("Content-Type", "application/octet-stream");
  
     res.send(csv);
