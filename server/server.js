@@ -45,12 +45,15 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-var path = require('path');
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'landing.html'));
-    // console.log(__dirname + './../public/landing.html');
 
-});
+
+var path = require('path');
+app.use('/static', express.static(path.join(__dirname, 'public')));
+// app.get('/', (req, res) => {
+//     res.sendFile('landing.html');
+//     // console.log(__dirname + './../public/landing.html');
+
+// });
 
 module.exports = {app};
 
