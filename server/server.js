@@ -1,7 +1,9 @@
 //library imports
 var express = require('express');
 var bodyParser = require('body-parser');
+var Fuse = require('fuse.js');
 var fileUpload = require('express-fileupload');
+
 
 //local imports
 var {mongoose} = require('./db/mongoose');
@@ -9,6 +11,7 @@ var {Boba} = require('./models/boba');
 var template = require('./template.js');
 
 var app = express();
+const port = process.env.PORT || 5000; // process.env.PORT 
 
 //using middleware - now we can send json to our app
 app.use(bodyParser.json());
@@ -39,6 +42,9 @@ app.get('/boba', (req, res) => {
     })
 });
 
+// console.log that your server is up and running
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
 app.get('/upload', (req, res) => {
     res.sendFile(__dirname + '/index.html');
   });
@@ -48,8 +54,25 @@ app.get('/template', template.get);
 var upload = require('./upload.js');
 app.post('/upload', upload.post);
 
-app.listen(3000, () => {
-    console.log('Started on port 3000');
+var path = require('path');
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.get('/search', (req, res) => {
+    var search = req.query.q;
+
+    Boba.find({}).then((boba) => {
+        var options = {
+            keys: ['name'],
+            id: 'name', // for debugging
+            threshold: 0.4,
+          }
+        var fuse = new Fuse(boba, options);
+    
+        var result = fuse.search(search)
+        res.send(result);
+    }, (err) => {
+        res.status(400).send(err);
+    });
 });
 
 module.exports = {app};
