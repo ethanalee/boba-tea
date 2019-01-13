@@ -43,9 +43,9 @@
   width: 50%;
   height: 100vh;
   transform: translate3d(0, -100%, 0);
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: left;
+  align-items: left;
   display: grid;
   border-radius: 5%;
 }
@@ -60,45 +60,57 @@ body {
 }
 
 div.coco {
+  margin-left: 0.5rem;
+  margin-top:1rem;
   border-radius: 50%;
   content: url(../imgs/coco.jpg);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 div.chatime {
+  margin-left: 0.5rem;
+  margin-top:1rem;
   border-radius: 50%;
   content: url(../imgs/chatime.jpg);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 div.alley {
+  margin-left: 0.5rem;
+  margin-top:1rem;
   border-radius: 50%;
   content: url(../imgs/alley.jpg);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 div.onezo {
+  margin-left: 0.5rem;
+  margin-top:1rem;
   border-radius: 50%;
   content: url(../imgs/onezo.jpg);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 div.presotea {
+  margin-left: 0.5rem;
+  margin-top:1rem;
   border-radius: 50%;
   content: url(../imgs/presotea.jpg);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 div.sharetea {
+  margin-left: 0.5rem;
+  margin-top:1rem;
   border-radius: 50%;
   content: url(../imgs/sharetea.jpg);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 div.coco:hover {

@@ -20,8 +20,44 @@
 
     <!-- Custom styles for this template -->
     <link href="css/coming-soon.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/main.css" />
-	
+    <link rel="stylesheet" href="css/main.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  <style>
+    .hidden {
+      visibility: hidden;
+    }
+    .queryVertical {
+      grid-template-columns: repeat(1, 1fr);
+      align-items: left !important;
+    }
+  </style>
+  <script>
+    $( document ).ready(function() {
+      let query = false;
+
+      $("button#query").click(function() {
+        query = !query;
+        if (query) {
+          $('.Container').addClass('queryVertical');
+        }
+        else { // second click
+          query = false;
+          $('.Container').removeClass("queryVertical");
+        }
+      });
+
+      $(".menu-btn.close").click(function() {
+        query = false;
+        $('.Container').removeClass("queryVertical");
+      });
+    });
+
+
+  </script>
+
+
   </head>
 	
   <body>
@@ -70,7 +106,7 @@
               <div class="input-group input-group-newsletter">
                <input type="email" class="form-control" placeholder="Enter Bubble Tea..." aria-label="Enter Bubble Tea..." aria-describedby="basic-addon">               
                 <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button">FIND!</button>
+                  <button id="query" class="btn btn-secondary" type="button">FIND!</button>
                 </div>
               </div>
             </div>
@@ -118,6 +154,7 @@
 				
 	<!-- Custom scripts for this template -->
     <script src="js/coming-soon.js"></script>
+    <script src="js/bobba-query.js"></script>
     <script src="src/app.js"></script> 
 	
   </body>
