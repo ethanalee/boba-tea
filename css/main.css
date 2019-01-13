@@ -61,42 +61,42 @@ body {
 
 div.coco {
   border-radius: 50%;
-  content: url(/imgs/coco.jog.jpg);
+  content: url(../imgs/coco.jpg);
   width: 100px;
   height: 100px;
 }
 
 div.chatime {
   border-radius: 50%;
-  content: url(/imgs/chatime.jpg);
+  content: url(../imgs/chatime.jpg);
   width: 100px;
   height: 100px;
 }
 
 div.alley {
   border-radius: 50%;
-  content: url(/imgs/alley.jpg);
+  content: url(../imgs/alley.jpg);
   width: 100px;
   height: 100px;
 }
 
 div.onezo {
   border-radius: 50%;
-  content: url(/imgs/onezo.jpg);
+  content: url(../imgs/onezo.jpg);
   width: 100px;
   height: 100px;
 }
 
 div.presotea {
   border-radius: 50%;
-  content: url(/imgs/presotea.jpeg);
+  content: url(../imgs/presotea.jpg);
   width: 100px;
   height: 100px;
 }
 
 div.sharetea {
   border-radius: 50%;
-  content: url(/imgs/sharetea.jpg);
+  content: url(../imgs/sharetea.jpg);
   width: 100px;
   height: 100px;
 }
