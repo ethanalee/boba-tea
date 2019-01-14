@@ -20,7 +20,7 @@ exports.post = function (req, res) {
          data['_id'] = new mongoose.Types.ObjectId();
           
          authors.push(data);
-         console.log(data);
+         //console.log(data);
      })
      .on("end", function(){
         // for (i = 0; i < authors.length; i++) {
