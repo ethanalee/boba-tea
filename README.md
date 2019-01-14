@@ -1,3 +1,6 @@
+# View the finished application
+https://boba-228419.appspot.com/static/landing.html
+
 # boba-tea
 
 1. Clone repo to local
