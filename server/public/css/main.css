@@ -40,20 +40,41 @@
 .Container {
   background-color: grey;
   margin-left: 50%;
-  width: 50%;
-  height: 100vh;
+  width: 40%;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  overflow: scroll;
+  /* height: 900px; 100vh */
   transform: translate3d(0, -100%, 0);
   grid-template-columns: repeat(1, 1fr);
-  justify-items: left;
+  justify-items: center;
   align-items: left;
   display: grid;
-  border-radius: 5%;
 }
 div.name {
   color: white;
   text-align: center;
   font-size: 1.5rem;
 }
+
+
+
+div.inline-query {
+  display: inline-block !important;
+}
+.posBoba {
+  height: 100px;
+  overflow: scroll;
+  position: relative;
+  display: inline-block;
+
+  background: lightgrey;
+}
+div.inline-query table {
+  color: black;
+}
+
 
 body {
   background-color: grey;
