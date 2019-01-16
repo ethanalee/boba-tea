@@ -59,16 +59,24 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get('/search', (req, res) => {
     var search = req.query.q;
-
     Boba.find({}).then((boba) => {
-        var options = {
-            keys: ['name'],
-            id: 'name', // for debugging
-            threshold: 0.4,
-          }
+        // var options = {
+        //     keys: ['name'],
+        //     id: 'name', // for debugging
+            
+        //   }
+          var options = {
+            keys: [{
+              name: 'name',
+              weight: 1.0
+            }],
+            threshold: 0.3,
+          };
         var fuse = new Fuse(boba, options);
     
-        var result = fuse.search(search)
+        var result = fuse.search(search);
+        console.log(result);
+       
         res.send(result);
     }, (err) => {
         res.status(400).send(err);
